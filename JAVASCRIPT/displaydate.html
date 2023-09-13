@@ -6,10 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <p id = "Demo"></p>
+    <p id = "Demo1"></p>
     <script>
-        document.getElementById("Demo").innerHTML = Date();
+        document.getElementById("Demo1").innerHTML = Date();
     </script>
+
+    <p id = "Demo2"></p>
+    <script>
+        var d = new Date();
+        d.setDate(30);
+        document.getElementById("Demo2").innerHTML = d.getDate();
+    </script>
+
+    <p id = "Demo3"></p>
+    <script>
+        var d = new Date();
+        d.setMinutes(59);
+        document.getElementById("Demo3").innerHTML = d.getMinutes();
+        alert(d);
+    </script>
+   
 </body>
 </html>
 
