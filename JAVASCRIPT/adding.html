@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">This is a First Paragraph</p>
+        <p id="p2">This is Second Paragraph</p>
+        <input type="button" onclick="myfun()">
+    </div>
+    <script>
+
+        
+        function myfun(){
+
+        var para =document.createElement("p");
+        var node = document.createTextNode("This is new,");
+        para.appendChild(node);
+        var element = document.getElementById("div1");
+        element.appendChild(para);
+        }
+    </script>
+</body>
+</html>
