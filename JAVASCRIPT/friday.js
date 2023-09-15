@@ -5,3 +5,10 @@
 //till the time it is true, It will carry on but as soon as it encounters false then it will assign resukt as true
 var result =[2,3,6,8].every((e)=>(e%2==0));
 console.log(result);
+
+//The function keyword returns a value which is the function itself- it makes a function !
+
+// Javascript is not object oriented
+
+// Date Class and Math Class
+
