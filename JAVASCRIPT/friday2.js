@@ -6,3 +6,4 @@ function partyAnimal(){
         console.log("So far"+this.x);
     }
 }
+an= new partyAnimal()
