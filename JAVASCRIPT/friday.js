@@ -12,3 +12,8 @@ console.log(result);
 
 // Date Class and Math Class
 
+/**
+ * In Computer science,  a programming language is said to have first class function
+ * Specifically this means the language supports passing functions as arguments to other functions, 
+ * returning them as arguments to other other functions returning them as the values from other function
+ */
