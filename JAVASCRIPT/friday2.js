@@ -7,3 +7,5 @@ function partyAnimal(){
     }
 }
 an= new partyAnimal()
+for(let i=0;i<100;i++)
+an.party();
