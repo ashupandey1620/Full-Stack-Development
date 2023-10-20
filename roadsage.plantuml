@@ -1,0 +1,109 @@
+@startuml RoadSageBackend
+
+class RoadSageBackend {
+  - transportData: List<Transport>
+  + getTransportData(location: Location): List<Transport>
+  + saveUserData(user: User): void
+  + reportIssue(user: User, issue: Issue): void
+  + integrateWithTransportSystem(transportSystem: TransportSystem): void
+}
+
+class Location {
+  - latitude: float
+  - longitude: float
+  + getDistanceTo(other: Location): float
+}
+
+class Transport {
+  - id: int
+  - location: Location
+  - destination: Location
+  - driver: Driver
+  - route: Route
+  - estimatedArrivalTime: DateTime
+  + updateLocation(newLocation: Location): void
+  + updateDriver(newDriver: Driver): void
+  + updateRoute(newRoute: Route): void
+  + updateArrivalTime(newTime: DateTime): void
+}
+
+class User {
+  - id: int
+  - username: string
+  - email: string
+  - password: string
+  - accessibilityFeatures: boolean
+  + getLocation(): Location
+  + setUsername(username: string): void
+  + setEmail(email: string): void
+  + setPassword(password: string): void
+  + setAccessibilityFeatures(enabled: boolean): void
+}
+
+class Driver {
+  - id: int
+  - name: string
+  - vehicle: Vehicle
+  + updateLocation(newLocation: Location): void
+  + updateVehicle(newVehicle: Vehicle): void
+}
+
+class Route {
+  - id: int
+  - name: string
+  - stops: List<Location>
+  + addStop(stop: Location): void
+  + removeStop(stop: Location): void
+}
+
+class TransportSystem {
+  - id: int
+  - name: string
+  - supportedRegions: List<string>
+  + addSupportedRegion(region: string): void
+  + removeSupportedRegion(region: string): void
+}
+
+class Issue {
+  - id: int
+  - description: string
+  - reportedBy: User
+  - dateReported: DateTime
+  + updateIssue(issue: Issue): string
+}
+
+
+class Vehicle {
+  - vid: int
+  - registrationNumber: int
+  - oid: int
+  - did: int
+  + updateDriver(driver: int) : void
+  + updateRoute(route: Route) : void
+}
+
+class SupportedRegion {
+  - areaId: int
+  - numberOfUsers: int
+  - numberOfDrivers: int
+  - numberOfOwners: int
+  - accessibility: boolean
+  + getLocation(cordinates :Location): void
+  + getAreaData(area: Vehicle): void
+}
+
+RoadSageBackend -- Location
+RoadSageBackend "1" -- "1..*" Transport
+RoadSageBackend "1" -- "1..*" User
+Transport -- Location
+Transport -- Driver
+Transport -- Route
+User -- Location
+Driver -- Location
+Driver -- Vehicle
+Route -- Location
+TransportSystem -- Location
+TransportSystem -- "1..*" SupportedRegion
+Issue -- User
+
+@enduml
